@@ -1,0 +1,19 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "iii",
+    "iFi",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:glass"
+    },
+    "F": {
+      "item": "fabric-furnaces:iron_furnace"
+    }
+  },
+  "result": {
+    "item": "fabric-furnaces:crystal_iron_furnace"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "L#L",
+    "LFL",
+    "L#L"
+  ],
+  "key": {
+    "#": {
+      "tag": "minecraft:wool"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result": {
+    "item": "fabric-furnaces:fabric_furnace"
+  }
+}

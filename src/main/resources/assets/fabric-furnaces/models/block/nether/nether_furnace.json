@@ -1,0 +1,8 @@
+{
+    "parent": "block/orientable",
+    "textures": {
+        "top": "fabric-furnaces:block/nether/nether_furnace_top",
+        "front": "fabric-furnaces:block/nether/nether_furnace_front",
+        "side": "fabric-furnaces:block/nether/nether_furnace_side"
+    }
+}

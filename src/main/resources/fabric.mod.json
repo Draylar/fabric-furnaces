@@ -1,17 +1,26 @@
 {
-  "id": "modid",
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
-  "version": "1.0.0",
-  "side": "universal",
-  "initializers": [
-    "com.github.draylar.modid.ExampleMod"
+  "schemaVersion": 1,
+  "id": "fabric-furnaces",
+  "version": "1.0.1",
+
+  "name": "Fabric Furnaces",
+  "description": "Adds a ton of new furnaces to the game.",
+  "authors": [
+    "Draylar"
   ],
-  "requires": {
-    "fabric": "*"
+
+  "license": "GPLv3",
+  "icon": "assets/fabric-furnaces/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.draylar.fabricFurnaces.FabricFurnaces"
+    ]
   },
-  "mixins": {
-    "client": "modid.client.json",
-    "common": "modid.common.json"
+
+  "requires": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
   }
 }

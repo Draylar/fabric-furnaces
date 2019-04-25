@@ -1,0 +1,31 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "#D#",
+    "PNP",
+    "SFS"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:glowstone"
+    },
+    "D": {
+      "item": "minecraft:dragon_head"
+    },
+    "P": {
+      "item": "minecraft:diamond_block"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    },
+    "S": {
+      "item": "minecraft:sea_lantern"
+    },
+    "F": {
+      "item": "fabric-furnaces:end_furnace"
+    }
+  },
+  "result": {
+    "item": "fabric-furnaces:ethereal_furnace"
+  }
+}

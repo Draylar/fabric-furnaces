@@ -1,0 +1,19 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "iii",
+    "iFi",
+    "iii"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:emerald"
+    },
+    "F": {
+      "item": "fabric-furnaces:nether_furnace"
+    }
+  },
+  "result": {
+    "item": "fabric-furnaces:emerald_furnace"
+  }
+}
