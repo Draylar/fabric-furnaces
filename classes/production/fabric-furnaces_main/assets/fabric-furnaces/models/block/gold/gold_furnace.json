@@ -1,8 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "fabric-furnaces:block/gold/gold_furnace_top",
-        "front": "fabric-furnaces:block/gold/gold_furnace_front",
-        "side": "fabric-furnaces:block/gold/gold_furnace_side"
-    }
-}

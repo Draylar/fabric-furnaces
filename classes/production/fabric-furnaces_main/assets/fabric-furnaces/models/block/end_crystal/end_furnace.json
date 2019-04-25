@@ -1,8 +1,0 @@
-{
-    "parent": "block/orientable",
-    "textures": {
-        "top": "fabric-furnaces:block/end_crystal/end_furnace_top",
-        "front": "fabric-furnaces:block/end_crystal/end_furnace_front",
-        "side": "fabric-furnaces:block/end_crystal/end_furnace_side"
-    }
-}
