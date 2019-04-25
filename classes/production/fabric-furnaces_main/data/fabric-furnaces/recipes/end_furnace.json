@@ -1,0 +1,31 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "/E/",
+    "QFQ",
+    "DSD"
+  ],
+  "key": {
+    "/": {
+      "item": "minecraft:end_rod"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "Q": {
+      "item": "minecraft:ender_pearl"
+    },
+    "F": {
+      "item": "fabric-furnaces:emerald_furnace"
+    },
+    "D": {
+      "item": "minecraft:end_stone_bricks"
+    },
+    "S": {
+      "item": "minecraft:shulker_shell"
+    }
+  },
+  "result": {
+    "item": "fabric-furnaces:end_furnace"
+  }
+}

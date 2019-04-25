@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "fabric-furnaces:crystal_ethereal_furnace"
+    }
+  ],
+  "result": {
+    "item": "fabric-furnaces:ethereal_furnace",
+    "count": 1
+  }
+}
