@@ -1,10 +1,7 @@
 package com.github.draylar.fabricFurnaces.furnaces.base;
 
-import com.github.draylar.fabricFurnaces.FabricFurnaces;
-import com.github.draylar.fabricFurnaces.init.Entities;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.fabricmc.fabric.impl.registry.FuelRegistryImpl;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;

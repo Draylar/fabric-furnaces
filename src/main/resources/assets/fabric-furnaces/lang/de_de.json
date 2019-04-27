@@ -1,0 +1,21 @@
+{
+  "block.fabric-furnaces.fabric_furnace": "Fabric Ofen",
+  "block.fabric-furnaces.iron_furnace": "Eisen Ofen",
+  "block.fabric-furnaces.gold_furnace": "Gold Ofen",
+  "block.fabric-furnaces.diamond_furnace": "Diamand Ofen",
+  "block.fabric-furnaces.obsidian_furnace": "Obsidian Ofen",
+  "block.fabric-furnaces.nether_furnace": "Nether Ofen",
+  "block.fabric-furnaces.emerald_furnace": "Smaragd Ofen",
+  "block.fabric-furnaces.end_furnace": "End Ofen",
+  "block.fabric-furnaces.ethereal_furnace": "Ethereal Ofen",
+
+  "block.fabric-furnaces.crystal_fabric_furnace": "Kristall Fabric Ofen",
+  "block.fabric-furnaces.crystal_iron_furnace": "Kristall Eisen Ofen",
+  "block.fabric-furnaces.crystal_gold_furnace": "Kristall Gold Ofen",
+  "block.fabric-furnaces.crystal_diamond_furnace": "Kristall Diamand Ofen",
+  "block.fabric-furnaces.crystal_obsidian_furnace": "Kristall Obsidian Ofen",
+  "block.fabric-furnaces.crystal_nether_furnace": "Kristall Nether Ofen",
+  "block.fabric-furnaces.crystal_emerald_furnace": "Kristall Smaragd Ofen",
+  "block.fabric-furnaces.crystal_end_furnace": "Kristall End Ofen",
+  "block.fabric-furnaces.crystal_ethereal_furnace": "Kristall Ethereal Ofen"
+}
