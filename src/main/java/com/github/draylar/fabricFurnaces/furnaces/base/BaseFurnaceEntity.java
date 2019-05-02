@@ -2,7 +2,7 @@ package com.github.draylar.fabricFurnaces.furnaces.base;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-import net.fabricmc.fabric.impl.registry.FuelRegistryImpl;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.LockableContainerBlockEntity;
@@ -309,8 +309,8 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
         else
         {
             Item item_1 = itemStack_1.getItem();
-            int fuelTime = FuelRegistryImpl.INSTANCE.get(item_1);
-            return fuelTime == 0 ? 0 : (int) (fuelTime / fuelModifier);
+            Integer fuelTime = FuelRegistry.INSTANCE.get(item_1);
+            return fuelTime == null ? 0 : (int) (fuelTime / fuelModifier);
         }
     }
 
@@ -320,7 +320,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
     }
 
     private static boolean canUseAsFuel(ItemStack itemStack_1) {
-        return FuelRegistryImpl.INSTANCE.get(itemStack_1.getItem()) > 0;
+        return FuelRegistry.INSTANCE.get(itemStack_1.getItem()) != null;
     }
 
     public int[] getInvAvailableSlots(Direction direction_1) {
