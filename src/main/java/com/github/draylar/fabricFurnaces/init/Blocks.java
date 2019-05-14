@@ -60,6 +60,14 @@ public class Blocks
     {
         Registry.register(Registry.BLOCK, new Identifier("fabric-furnaces", name), block);
     }
+
+    public static Block[] getRegularFurnaces() {
+        return new Block[]{FABRIC_FURNACE,IRON_FURNACE,GOLD_FURNACE,DIAMOND_FURNACE,OBSIDIAN_FURNACE,NETHER_FURNACE,EMERALD_FURNACE,END_FURNACE,ETHEREAL_FURNACE};
+    }
+
+    public static Block[] getCrystalFurnaces() {
+        return new Block[]{CRYSTAL_FABRIC_FURNACE,CRYSTAL_IRON_FURNACE,CRYSTAL_GOLD_FURNACE,CRYSTAL_DIAMOND_FURNACE,CRYSTAL_OBSIDIAN_FURNACE,CRYSTAL_NETHER_FURNACE,CRYSTAL_EMERALD_FURNACE,CRYSTAL_END_FURNACE,CRYSTAL_ETHEREAL_FURNACE};
+    }
 }
 
 
