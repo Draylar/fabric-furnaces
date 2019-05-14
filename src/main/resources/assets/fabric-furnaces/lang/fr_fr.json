@@ -1,0 +1,21 @@
+{
+  "block.fabric-furnaces.fabric_furnace": "Fourneau Fabric",
+  "block.fabric-furnaces.iron_furnace": "Fourneau en fer",
+  "block.fabric-furnaces.gold_furnace": "Fourneau en or",
+  "block.fabric-furnaces.diamond_furnace": "Fourneau en diamant",
+  "block.fabric-furnaces.obsidian_furnace": "Fourneau en obsidienne",
+  "block.fabric-furnaces.nether_furnace": "Fourneau du Nether",
+  "block.fabric-furnaces.emerald_furnace": "Fourneau en émeraude",
+  "block.fabric-furnaces.end_furnace": "Fourneau de l'End",
+  "block.fabric-furnaces.ethereal_furnace": "Fourneau éthéré",
+
+  "block.fabric-furnaces.crystal_fabric_furnace": "Fourneau Fabric cristallisé",
+  "block.fabric-furnaces.crystal_iron_furnace": "Fourneau en fer cristallisé",
+  "block.fabric-furnaces.crystal_gold_furnace": "Fourneau en or cristallisé",
+  "block.fabric-furnaces.crystal_diamond_furnace": "Fourneau en diamant cristallisé",
+  "block.fabric-furnaces.crystal_obsidian_furnace": "Fourneau en obsidienne cristallisé",
+  "block.fabric-furnaces.crystal_nether_furnace": "Fourneau du Nether cristallisé",
+  "block.fabric-furnaces.crystal_emerald_furnace": "Fourneau en émeraude cristallisé",
+  "block.fabric-furnaces.crystal_end_furnace": "Fourneau de l'End cristallisé",
+  "block.fabric-furnaces.crystal_ethereal_furnace": "Fourneau éthéré cristallisé"
+}
