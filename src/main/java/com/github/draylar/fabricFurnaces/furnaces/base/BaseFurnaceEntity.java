@@ -18,10 +18,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.recipe.*;
 import net.minecraft.recipe.cooking.CookingRecipe;
-import net.minecraft.text.TextComponent;
-import net.minecraft.text.TranslatableTextComponent;
 import net.minecraft.util.DefaultedList;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Tickable;
@@ -61,9 +61,9 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
         this.dupeChance100 = duplicateChanceOutOf100;
     }
 
-    protected TextComponent getContainerName()
+    protected Component getContainerName()
 {
-    return new TranslatableTextComponent("container.furnace", new Object[0]);
+    return new TranslatableComponent("container.furnace", new Object[0]);
 }
 
     protected Container createContainer(int int_1, PlayerInventory playerInventory_1)
@@ -292,7 +292,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
                 this.setLastRecipe(currentRecipe);
 
 
-            if (inputStack.getItem() == Blocks.WET_SPONGE.getItem() && !((ItemStack) this.inventory.get(1)).isEmpty() && ((ItemStack) this.inventory.get(1)).getItem() == Items.BUCKET)
+            if (inputStack.getItem() == Blocks.WET_SPONGE.asItem() && !((ItemStack) this.inventory.get(1)).isEmpty() && ((ItemStack) this.inventory.get(1)).getItem() == Items.BUCKET)
             {
                 this.inventory.set(1, new ItemStack(Items.WATER_BUCKET));
             }

@@ -34,8 +34,8 @@ public class CrystalFurnaceBlock extends BaseFurnaceBlock
 
     @Environment(EnvType.CLIENT)
     @Override
-    public boolean skipRenderingSide(BlockState blockState_1, BlockState blockState_2, Direction direction_1) {
-        return blockState_2.getBlock() == this ? true : super.skipRenderingSide(blockState_1, blockState_2, direction_1);
+    public boolean isSideInvisible(BlockState blockState_1, BlockState blockState_2, Direction direction_1) {
+        return blockState_2.getBlock() == this ? true : super.isSideInvisible(blockState_1, blockState_2, direction_1);
     }
 
     @Environment(EnvType.CLIENT)
