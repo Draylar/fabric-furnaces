@@ -21,7 +21,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.recipe.*;
-import net.minecraft.recipe.cooking.CookingRecipe;
 import net.minecraft.util.DefaultedList;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Tickable;
@@ -51,7 +50,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
 
     private final PropertyDelegate propertyDelegate;
     private final Map<Identifier, Integer> recipesUsed;
-    private final RecipeType<? extends CookingRecipe> recipeType;
+    private final RecipeType<? extends SmeltingRecipe> recipeType;
 
     public BaseFurnaceEntity(BlockEntityType type, float speedMultiplier, float fuelMultiplier, float duplicateChanceOutOf100)
     {
@@ -71,7 +70,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
         return new FurnaceContainer(int_1, playerInventory_1, this, this.propertyDelegate);
     }
 
-    private BaseFurnaceEntity(BlockEntityType<?> blockEntityType_1, RecipeType<? extends CookingRecipe> recipeType_1) {
+    private BaseFurnaceEntity(BlockEntityType<?> blockEntityType_1, RecipeType<? extends SmeltingRecipe> recipeType_1) {
         super(blockEntityType_1);
 
         this.inventory = DefaultedList.create(3, ItemStack.EMPTY);
@@ -315,7 +314,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
     }
 
     public int getCookTime() {
-        int cookTime = this.world.getRecipeManager().getFirstMatch(this.recipeType, this, this.world).map(CookingRecipe::getCookTime).orElse(200);
+        int cookTime = this.world.getRecipeManager().getFirstMatch(this.recipeType, this, this.world).map(SmeltingRecipe::getCookTime).orElse(200);
         return (int) (cookTime / speedModifier);
     }
 
@@ -452,7 +451,6 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
     public void unlockLastRecipe(PlayerEntity playerEntity_1) {
     }
 
-
     public void dropExperience(PlayerEntity playerEntity_1) {
         if (!this.world.getGameRules().getBoolean("doLimitedCrafting")) {
             List<Recipe<?>> list_1 = Lists.newArrayList();
@@ -460,9 +458,9 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
 
             while(var3.hasNext()) {
                 Map.Entry<Identifier, Integer> map$Entry_1 = (Map.Entry)var3.next();
-                playerEntity_1.world.getRecipeManager().get((Identifier)map$Entry_1.getKey()).ifPresent((recipe_1) -> {
+                playerEntity_1.world.getRecipeManager().get(map$Entry_1.getKey()).ifPresent((recipe_1) -> {
                     list_1.add(recipe_1);
-                    dropExperience(playerEntity_1, (Integer)map$Entry_1.getValue(), ((CookingRecipe)recipe_1).getExperience());
+                    dropExperience(playerEntity_1, map$Entry_1.getValue(), ((SmeltingRecipe)recipe_1).getExperience());
                 });
             }
 
@@ -493,7 +491,6 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
 
     }
 
-
     @Override
     public void provideRecipeInputs(RecipeFinder recipeFinder_1) {
         Iterator var2 = this.inventory.iterator();
@@ -502,6 +499,5 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
             ItemStack itemStack_1 = (ItemStack)var2.next();
             recipeFinder_1.addItem(itemStack_1);
         }
-
     }
 }

@@ -65,6 +65,16 @@ public class BaseFurnaceBlock extends BlockWithEntity
         return true;
     }
 
+    @Override
+    public void onBreak(World world_1, BlockPos blockPos_1, BlockState blockState_1, PlayerEntity playerEntity_1)
+    {
+        if (world_1.getBlockEntity(blockPos_1) instanceof BaseFurnaceEntity)
+        {
+            ((BaseFurnaceEntity) world_1.getBlockEntity(blockPos_1)).dropExperience(playerEntity_1);
+        }
+        super.onBreak(world_1, blockPos_1, blockState_1, playerEntity_1);
+    }
+
     protected void openContainer(World world_1, BlockPos blockPos_1, PlayerEntity playerEntity_1) {
         BlockEntity blockEntity_1 = world_1.getBlockEntity(blockPos_1);
         if (blockEntity_1 instanceof BaseFurnaceEntity) {
