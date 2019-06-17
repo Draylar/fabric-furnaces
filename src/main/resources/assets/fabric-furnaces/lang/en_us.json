@@ -19,8 +19,8 @@
   "block.fabric-furnaces.crystal_end_furnace": "Crystal End Furnace",
   "block.fabric-furnaces.crystal_ethereal_furnace": "Crystal Ethereal Furnace",
 
-  "fabric-furnaces.text.dupelabel": "§bDupe chance: ",
-  "fabric-furnaces.text.speedlabel": "§bSpeed increase: ",
-  "fabric-furnaces.text.fuellabel": "§bFuel usage: ",
+  "fabric-furnaces.text.dupelabel": "§2Dupe chance: ",
+  "fabric-furnaces.text.speedlabel": "§2Speed increase: ",
+  "fabric-furnaces.text.fuellabel": "§2Fuel usage: ",
   "fabric-furnaces.text.tooltiplabel": "§7Furnace stats:"
 }
