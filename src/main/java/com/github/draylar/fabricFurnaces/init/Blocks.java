@@ -20,7 +20,7 @@ public class Blocks
     static final BaseFurnaceBlock NETHER_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 4.5f, 3.5f, 0);
     static final BaseFurnaceBlock EMERALD_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 8f, 5f, 33);
     static final BaseFurnaceBlock END_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 12f, 6f, 66);
-    static final BaseFurnaceBlock ETHEREAL_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 32f, 10f, 101);
+    static final BaseFurnaceBlock ETHEREAL_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 32f, 10f, 100);
 
     // crystal
     static final CrystalFurnaceBlock CRYSTAL_FABRIC_FURNACE = new CrystalFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).sounds(BlockSoundGroup.GLASS).build(), 1.5f, 1.5f, 0);
@@ -31,7 +31,7 @@ public class Blocks
     static final CrystalFurnaceBlock CRYSTAL_NETHER_FURNACE = new CrystalFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).sounds(BlockSoundGroup.GLASS).build(), 4.5f, 3.5f, 0);
     static final CrystalFurnaceBlock CRYSTAL_EMERALD_FURNACE = new CrystalFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).sounds(BlockSoundGroup.GLASS).build(), 8f, 5f, 33);
     static final CrystalFurnaceBlock CRYSTAL_END_FURNACE = new CrystalFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).sounds(BlockSoundGroup.GLASS).build(), 12f, 6f, 66);
-    static final CrystalFurnaceBlock CRYSTAL_ETHEREAL_FURNACE = new CrystalFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).sounds(BlockSoundGroup.GLASS).build(), 32f, 10f, 101);
+    static final CrystalFurnaceBlock CRYSTAL_ETHEREAL_FURNACE = new CrystalFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).sounds(BlockSoundGroup.GLASS).build(), 32f, 10f, 100);
     
     public static void register()
     {

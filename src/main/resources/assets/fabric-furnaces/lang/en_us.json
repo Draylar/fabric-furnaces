@@ -17,5 +17,10 @@
   "block.fabric-furnaces.crystal_nether_furnace": "Crystal Nether Furnace",
   "block.fabric-furnaces.crystal_emerald_furnace": "Crystal Emerald Furnace",
   "block.fabric-furnaces.crystal_end_furnace": "Crystal End Furnace",
-  "block.fabric-furnaces.crystal_ethereal_furnace": "Crystal Ethereal Furnace"
+  "block.fabric-furnaces.crystal_ethereal_furnace": "Crystal Ethereal Furnace",
+
+  "fabric-furnaces.text.dupelabel": "§bDupe chance: ",
+  "fabric-furnaces.text.speedlabel": "§bSpeed increase: ",
+  "fabric-furnaces.text.fuellabel": "§bFuel usage: ",
+  "fabric-furnaces.text.tooltiplabel": "§7Furnace stats:"
 }

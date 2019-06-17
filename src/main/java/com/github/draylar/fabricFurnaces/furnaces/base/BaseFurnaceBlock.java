@@ -34,8 +34,8 @@ import java.util.Random;
 
 public class BaseFurnaceBlock extends BlockWithEntity
 {
-    public static final DirectionProperty FACING;
-    public static final BooleanProperty LIT;
+    private static final DirectionProperty FACING;
+    static final BooleanProperty LIT;
 
     protected float speed;
     protected float fuel;
@@ -75,7 +75,7 @@ public class BaseFurnaceBlock extends BlockWithEntity
         super.onBreak(world_1, blockPos_1, blockState_1, playerEntity_1);
     }
 
-    protected void openContainer(World world_1, BlockPos blockPos_1, PlayerEntity playerEntity_1) {
+    private void openContainer(World world_1, BlockPos blockPos_1, PlayerEntity playerEntity_1) {
         BlockEntity blockEntity_1 = world_1.getBlockEntity(blockPos_1);
         if (blockEntity_1 instanceof BaseFurnaceEntity) {
             playerEntity_1.openContainer((NameableContainerProvider)blockEntity_1);
@@ -175,6 +175,21 @@ public class BaseFurnaceBlock extends BlockWithEntity
     @Override
     protected void appendProperties(StateFactory.Builder<Block, BlockState> stateFactory$Builder_1) {
         stateFactory$Builder_1.add(new Property[]{FACING, LIT});
+    }
+
+    public float getSpeedMultiplier()
+    {
+        return speed;
+    }
+
+    public float getFuelMultiplier()
+    {
+        return fuel;
+    }
+
+    public float getDupeChance()
+    {
+        return dupe;
     }
 
     static {
