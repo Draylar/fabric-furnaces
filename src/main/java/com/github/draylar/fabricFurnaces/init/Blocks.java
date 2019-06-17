@@ -14,13 +14,13 @@ public class Blocks
     // default
     static final BaseFurnaceBlock FABRIC_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 1.5f, 1.5f, 0);
     static final BaseFurnaceBlock IRON_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 2, 2, 0);
-    static final BaseFurnaceBlock GOLD_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 2.25f, 2, 0);
+    static final BaseFurnaceBlock GOLD_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 3f, 2, 0);
     static final BaseFurnaceBlock DIAMOND_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 3.5f, 3f, 0);
-    static final BaseFurnaceBlock OBSIDIAN_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 3.5f, 2f, 0);
+    static final BaseFurnaceBlock OBSIDIAN_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 4f, 2f, 0);
     static final BaseFurnaceBlock NETHER_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 4.5f, 3.5f, 0);
-    static final BaseFurnaceBlock EMERALD_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 8f, 5f, 33);
-    static final BaseFurnaceBlock END_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 12f, 6f, 66);
-    static final BaseFurnaceBlock ETHEREAL_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 32f, 10f, 100);
+    static final BaseFurnaceBlock EMERALD_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 8f, 8f, 33);
+    static final BaseFurnaceBlock END_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 12f, 10f, 66);
+    static final BaseFurnaceBlock ETHEREAL_FURNACE = new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(), 32f, 16f, 100);
 
     // crystal
     static final CrystalFurnaceBlock CRYSTAL_FABRIC_FURNACE = new CrystalFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).sounds(BlockSoundGroup.GLASS).build(), 1.5f, 1.5f, 0);
