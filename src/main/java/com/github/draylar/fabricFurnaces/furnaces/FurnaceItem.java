@@ -4,9 +4,9 @@ import com.github.draylar.fabricFurnaces.furnaces.base.BaseFurnaceBlock;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -22,22 +22,22 @@ public class FurnaceItem extends BlockItem
     }
 
     @Override
-    public void buildTooltip(ItemStack stack, World world, List<Component> list, TooltipContext context)
+    public void appendTooltip(ItemStack stack, World world, List<Text> list, TooltipContext context)
     {
         // add top label section
-        list.add(new TextComponent(""));
-        list.add(new TranslatableComponent("fabric-furnaces.text.tooltiplabel"));
+        list.add(new LiteralText(""));
+        list.add(new TranslatableText("fabric-furnaces.text.tooltiplabel"));
 
         // add stats
-        list.add(new TextComponent(" " + new TranslatableComponent("fabric-furnaces.text.speedlabel").getText() + block.getSpeedMultiplier() + "x"));
-        list.add(new TextComponent(" " + new TranslatableComponent("fabric-furnaces.text.fuellabel").getText() + block.getFuelMultiplier() + "x"));
+        list.add(new LiteralText(" " + new TranslatableText("fabric-furnaces.text.speedlabel").asFormattedString() + block.getSpeedMultiplier() + "x"));
+        list.add(new LiteralText(" " + new TranslatableText("fabric-furnaces.text.fuellabel").asFormattedString() + block.getFuelMultiplier() + "x"));
 
 
         if(block.getDupeChance() > 0)
         {
-            list.add(new TextComponent(" " + new TranslatableComponent("fabric-furnaces.text.dupelabel").getText() + block.getDupeChance() + "%"));
+            list.add(new LiteralText(" " + new TranslatableText("fabric-furnaces.text.dupelabel").asFormattedString() + block.getDupeChance() + "%"));
         }
 
-        super.buildTooltip(stack, world, list, context);
+        super.appendTooltip(stack, world, list, context);
     }
 }

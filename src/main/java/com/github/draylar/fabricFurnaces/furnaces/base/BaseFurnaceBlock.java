@@ -123,18 +123,18 @@ public class BaseFurnaceBlock extends BlockWithEntity
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext itemPlacementContext_1) {
-        return (BlockState)this.getDefaultState().with(FACING, itemPlacementContext_1.getPlayerHorizontalFacing().getOpposite());
+        return (BlockState)this.getDefaultState().with(FACING, itemPlacementContext_1.getPlayerLookDirection().getOpposite());
     }
 
     @Override
     public void onPlaced(World world_1, BlockPos blockPos_1, BlockState blockState_1, LivingEntity livingEntity_1, ItemStack itemStack_1)
     {
-        if (itemStack_1.hasDisplayName())
+        if (itemStack_1.hasCustomName())
         {
             BlockEntity blockEntity_1 = world_1.getBlockEntity(blockPos_1);
             if (blockEntity_1 instanceof BaseFurnaceEntity)
             {
-                ((BaseFurnaceEntity) blockEntity_1).setCustomName(itemStack_1.getDisplayName());
+                ((BaseFurnaceEntity) blockEntity_1).setCustomName(itemStack_1.getName());
             }
         }
     }

@@ -24,7 +24,7 @@ public abstract class FurnaceXPMixin extends Slot
         super(inventory_1, int_1, int_2, int_3);
     }
 
-    @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;onCrafted(Lnet/minecraft/world/World;Lnet/minecraft/entity/player/PlayerEntity;I)V"), method = "Lnet/minecraft/container/FurnaceOutputSlot;onCrafted(Lnet/minecraft/item/ItemStack;)V")
+    @Inject(at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;onCraft(Lnet/minecraft/world/World;Lnet/minecraft/entity/player/PlayerEntity;I)V"), method = "onCrafted(Lnet/minecraft/item/ItemStack;)V")
     private void craft(ItemStack itemStack_1, CallbackInfo ci)
     {
         if (!this.player.world.isClient && this.inventory instanceof BaseFurnaceEntity) {

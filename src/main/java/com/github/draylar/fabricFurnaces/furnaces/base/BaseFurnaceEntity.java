@@ -18,14 +18,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.recipe.*;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.DefaultedList;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.GameRules;
 
 import java.util.Iterator;
 import java.util.List;
@@ -60,9 +61,9 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
         this.dupeChance100 = duplicateChanceOutOf100;
     }
 
-    protected Component getContainerName()
+    protected Text getContainerName()
 {
-    return new TranslatableComponent("container.furnace", new Object[0]);
+    return new TranslatableText("container.furnace", new Object[0]);
 }
 
     protected Container createContainer(int int_1, PlayerInventory playerInventory_1)
@@ -205,7 +206,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
                         boolean_2 = true;
                         if (!itemStack_1.isEmpty()) {
                             Item item_1 = itemStack_1.getItem();
-                            itemStack_1.subtractAmount(1);
+                            itemStack_1.decrement(1);
                             if (itemStack_1.isEmpty()) {
                                 Item item_2 = item_1.getRecipeRemainder();
                                 this.inventory.set(1, item_2 == null ? ItemStack.EMPTY : new ItemStack(item_2));
@@ -249,12 +250,12 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
                 ItemStack itemStack_2 = (ItemStack)this.inventory.get(2);
                 if (itemStack_2.isEmpty()) {
                     return true;
-                } else if (!itemStack_2.isEqualIgnoreTags(itemStack_1)) {
+                } else if (!itemStack_2.isItemEqualIgnoreDamage(itemStack_1)) {
                     return false;
-                } else if (itemStack_2.getAmount() < this.getInvMaxStackAmount() && itemStack_2.getAmount() < itemStack_2.getMaxAmount()) {
+                } else if (itemStack_2.getCount() < this.getInvMaxStackAmount() && itemStack_2.getCount() < itemStack_2.getMaxCount()) {
                     return true;
                 } else {
-                    return itemStack_2.getAmount() < itemStack_1.getMaxAmount();
+                    return itemStack_2.getCount() < itemStack_1.getMaxCount();
                 }
             }
         } else {
@@ -275,7 +276,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
             if (outputStack.isEmpty())
             {
                 ItemStack newResultStack = recipeResultStack.copy();
-                newResultStack.setAmount(resultCount);
+                newResultStack.setCount(resultCount);
                 this.inventory.set(2, newResultStack);
             }
 
@@ -283,7 +284,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
             else if (outputStack.getItem() == recipeResultStack.getItem())
             {
                 // TODO: WHAT HAPPENS IF FINAL COUNT IS 63 AND WE SMELT DOUBLE?
-                outputStack.addAmount(resultCount);
+                outputStack.increment(resultCount);
             }
 
 
@@ -296,7 +297,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
                 this.inventory.set(1, new ItemStack(Items.WATER_BUCKET));
             }
 
-            inputStack.subtractAmount(1);
+            inputStack.decrement(1);
         }
     }
 
@@ -388,10 +389,10 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
     @Override
     public void setInvStack(int int_1, ItemStack itemStack_1) {
         ItemStack itemStack_2 = this.inventory.get(int_1);
-        boolean boolean_1 = !itemStack_1.isEmpty() && itemStack_1.isEqualIgnoreTags(itemStack_2) && ItemStack.areTagsEqual(itemStack_1, itemStack_2);
+        boolean boolean_1 = !itemStack_1.isEmpty() && itemStack_1.isItemEqualIgnoreDamage(itemStack_2) && ItemStack.areTagsEqual(itemStack_1, itemStack_2);
         this.inventory.set(int_1, itemStack_1);
-        if (itemStack_1.getAmount() > this.getInvMaxStackAmount()) {
-            itemStack_1.setAmount(this.getInvMaxStackAmount());
+        if (itemStack_1.getCount() > this.getInvMaxStackAmount()) {
+            itemStack_1.setCount(this.getInvMaxStackAmount());
         }
 
         if (int_1 == 0 && !boolean_1) {
@@ -452,7 +453,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
     }
 
     public void dropExperience(PlayerEntity playerEntity_1) {
-        if (!this.world.getGameRules().getBoolean("doLimitedCrafting")) {
+        if (!this.world.getGameRules().getBoolean(GameRules.DO_LIMITED_CRAFTING)) {
             List<Recipe<?>> list_1 = Lists.newArrayList();
             Iterator var3 = this.recipesUsed.entrySet().iterator();
 

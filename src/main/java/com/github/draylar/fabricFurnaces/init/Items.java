@@ -9,7 +9,7 @@ import net.minecraft.util.registry.Registry;
 
 public class Items
 {
-    private static final Item.Settings DEFAULT = new Item.Settings().itemGroup(ItemGroup.DECORATIONS);
+    private static final Item.Settings DEFAULT = new Item.Settings().group(ItemGroup.DECORATIONS);
 
     // default
     private static final Item FABRIC_FURNACE = new FurnaceItem(Blocks.FABRIC_FURNACE, DEFAULT);
