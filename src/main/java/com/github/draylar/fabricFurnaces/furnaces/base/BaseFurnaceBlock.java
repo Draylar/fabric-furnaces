@@ -123,7 +123,7 @@ public class BaseFurnaceBlock extends BlockWithEntity
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext itemPlacementContext_1) {
-        return (BlockState)this.getDefaultState().with(FACING, itemPlacementContext_1.getPlayerLookDirection().getOpposite());
+        return this.getDefaultState().with(FACING, itemPlacementContext_1.getPlayerFacing().getOpposite());
     }
 
     @Override
