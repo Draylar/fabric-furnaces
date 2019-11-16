@@ -1,6 +1,8 @@
 package com.github.draylar.fabricFurnaces.registry;
 
 import com.github.draylar.fabricFurnaces.block.BaseFurnaceBlock;
+import com.github.draylar.fabricFurnaces.block.CrystalFurnaceBlock;
+import com.github.draylar.fabricFurnaces.item.FurnaceItem;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
@@ -31,7 +33,7 @@ public class Blocks {
     }
 
     private static void registerFurnace(String name, float speed, float fuel, float dupe) {
-        Block baseFurnace = register(
+        BaseFurnaceBlock baseFurnace = register(
                 name,
                 new BaseFurnaceBlock(
                         FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(),
@@ -41,25 +43,25 @@ public class Blocks {
                 )
         );
 
-        Block crystalFurnace = register(
+        BaseFurnaceBlock crystalFurnace = register(
                 "crystal_" + name,
-                new BaseFurnaceBlock(
-                        FabricBlockSettings.of(Material.STONE).hardness(3.5f).build(),
+                new CrystalFurnaceBlock(
+                        FabricBlockSettings.of(Material.STONE).hardness(3.5f).build().nonOpaque(),
                         speed,
                         fuel,
                         dupe
                 )
         );
 
-        Registry.register(Registry.ITEM, new Identifier("fabric-furnaces", name), new BlockItem(baseFurnace, new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM, new Identifier("fabric-furnaces", "crystal_" + name), new BlockItem(crystalFurnace, new Item.Settings().group(ItemGroup.DECORATIONS)));
+        Registry.register(Registry.ITEM, new Identifier("fabric-furnaces", name), new FurnaceItem(baseFurnace, new Item.Settings().group(ItemGroup.DECORATIONS)));
+        Registry.register(Registry.ITEM, new Identifier("fabric-furnaces", "crystal_" + name), new FurnaceItem(crystalFurnace, new Item.Settings().group(ItemGroup.DECORATIONS)));
 
         crystalFurnaces.add(crystalFurnace);
         allFurnaces.add(crystalFurnace);
         allFurnaces.add(baseFurnace);
     }
 
-    private static Block register(String name, Block block) {
+    private static BaseFurnaceBlock register(String name, BaseFurnaceBlock block) {
         return Registry.register(Registry.BLOCK, new Identifier("fabric-furnaces", name), block);
     }
 
