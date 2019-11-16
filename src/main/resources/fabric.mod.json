@@ -19,6 +19,9 @@
   "entrypoints": {
     "main": [
       "com.github.draylar.fabricFurnaces.FabricFurnaces"
+    ],
+    "client": [
+      "com.github.draylar.fabricFurnaces.FabricFurnacesClient"
     ]
   },
   "mixins": [
