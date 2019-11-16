@@ -74,7 +74,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
     private BaseFurnaceEntity(BlockEntityType<?> blockEntityType_1, RecipeType<? extends SmeltingRecipe> recipeType_1) {
         super(blockEntityType_1);
 
-        this.inventory = DefaultedList.create(3, ItemStack.EMPTY);
+        this.inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
 
         this.propertyDelegate = new PropertyDelegate() {
             public int get(int int_1) {
@@ -128,7 +128,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
     public void fromTag(CompoundTag compoundTag_1) {
         super.fromTag(compoundTag_1);
 
-        this.inventory = DefaultedList.create(this.getInvSize(), ItemStack.EMPTY);
+        this.inventory = DefaultedList.ofSize(this.getInvSize(), ItemStack.EMPTY);
         Inventories.fromTag(compoundTag_1, this.inventory);
         this.burnTime = compoundTag_1.getShort("BurnTime");
         this.cookTime = compoundTag_1.getShort("CookTime");
@@ -487,7 +487,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
         while(int_1 > 0) {
             int_2 = ExperienceOrbEntity.roundToOrbSize(int_1);
             int_1 -= int_2;
-            playerEntity_1.world.spawnEntity(new ExperienceOrbEntity(playerEntity_1.world, playerEntity_1.x, playerEntity_1.y + 0.5D, playerEntity_1.z + 0.5D, int_2));
+            playerEntity_1.world.spawnEntity(new ExperienceOrbEntity(playerEntity_1.world, playerEntity_1.getX(), playerEntity_1.getY() + 0.5D, playerEntity_1.getZ() + 0.5D, int_2));
         }
 
     }

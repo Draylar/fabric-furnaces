@@ -11,14 +11,16 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.context.LootContext;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
-import net.minecraft.state.StateFactory;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Property;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
@@ -26,8 +28,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.minecraft.world.loot.context.LootContext;
 
+import javax.naming.spi.StateFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -57,12 +59,12 @@ public class BaseFurnaceBlock extends BlockWithEntity
     }
 
     @Override
-    public boolean activate(BlockState blockState_1, World world_1, BlockPos blockPos_1, PlayerEntity playerEntity_1, Hand hand_1, BlockHitResult blockHitResult_1) {
-        if (!world_1.isClient) {
-            this.openContainer(world_1, blockPos_1, playerEntity_1);
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (!world.isClient) {
+            this.openContainer(world, pos, player);
         }
 
-        return true;
+        return super.onUse(state, world, pos, player, hand, hit);
     }
 
     @Override
@@ -173,8 +175,8 @@ public class BaseFurnaceBlock extends BlockWithEntity
 
 
     @Override
-    protected void appendProperties(StateFactory.Builder<Block, BlockState> stateFactory$Builder_1) {
-        stateFactory$Builder_1.add(new Property[]{FACING, LIT});
+    protected void appendProperties(StateManager.Builder<Block, BlockState> stateFactory$Builder_1) {
+        stateFactory$Builder_1.add(FACING, LIT);
     }
 
     public float getSpeedMultiplier()

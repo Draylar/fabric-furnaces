@@ -3,7 +3,6 @@ package com.github.draylar.fabricFurnaces.furnaces.crystal;
 import com.github.draylar.fabricFurnaces.furnaces.base.BaseFurnaceBlock;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.BlockRenderLayer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
@@ -20,11 +19,6 @@ public class CrystalFurnaceBlock extends BaseFurnaceBlock
     @Override
     public BlockEntity createBlockEntity(BlockView blockView_1) {
         return new CrystalFurnaceEntity(speed, fuel, dupe);
-    }
-
-    @Override
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT;
     }
 
     @Override
