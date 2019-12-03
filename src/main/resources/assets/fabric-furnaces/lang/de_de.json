@@ -18,4 +18,9 @@
   "block.fabric-furnaces.crystal_emerald_furnace": "Kristall Smaragd Ofen",
   "block.fabric-furnaces.crystal_end_furnace": "Kristall End Ofen",
   "block.fabric-furnaces.crystal_ethereal_furnace": "Kristall Ethereal Ofen"
+  
+  "fabric-furnaces.text.dupelabel": "§2Verdopplungschance: ",
+  "fabric-furnaces.text.speedlabel": "§2Geschwindigkeitssteigerung: ",
+  "fabric-furnaces.text.fuellabel": "§2Brennstoffverbrauch: ",
+  "fabric-furnaces.text.tooltiplabel": "§7Ofenstatistik:"
 }
