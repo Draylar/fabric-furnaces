@@ -48,7 +48,7 @@ public class BaseFurnaceBlock extends BlockWithEntity {
         this.fuel = fuelMultiplier;
         this.dupe = dupeChance100;
 
-        this.setDefaultState(this.stateFactory.getDefaultState().with(FACING, Direction.NORTH).with(LIT, false));
+        this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH).with(LIT, false));
     }
 
     @Override
@@ -62,7 +62,7 @@ public class BaseFurnaceBlock extends BlockWithEntity {
             this.openContainer(world, pos, player);
         }
 
-        return super.onUse(state, world, pos, player, hand, hit);
+        return ActionResult.SUCCESS;
     }
 
     @Override
