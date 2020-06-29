@@ -22,10 +22,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.github.draylar.fabricFurnaces.FabricFurnaces"
+      "draylar.fabricfurnaces.FabricFurnaces"
     ],
     "client": [
-      "com.github.draylar.fabricFurnaces.FabricFurnacesClient"
+      "draylar.fabricfurnaces.FabricFurnacesClient"
     ]
   },
   "mixins": [

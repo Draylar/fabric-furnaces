@@ -1,6 +1,6 @@
 # Fabric Furnaces
 
-Fabric Furnaces is a 1.14 Fabric mod that adds more furnace variants to the game.
+Fabric Furnaces is a Fabric mod which adds more furnace variants to the game.
 
 ![furnaces](https://i.imgur.com/AZAyxEH.png)
 

@@ -1,11 +1,11 @@
-package com.github.draylar.fabricFurnaces.mixin;
+package draylar.fabricfurnaces.mixin;
 
-import com.github.draylar.fabricFurnaces.entity.BaseFurnaceEntity;
-import net.minecraft.container.FurnaceOutputSlot;
-import net.minecraft.container.Slot;
+import draylar.fabricfurnaces.entity.BaseFurnaceEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.screen.slot.FurnaceOutputSlot;
+import net.minecraft.screen.slot.Slot;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

@@ -1,6 +1,6 @@
-package com.github.draylar.fabricFurnaces.block;
+package draylar.fabricfurnaces.block;
 
-import com.github.draylar.fabricFurnaces.entity.BaseFurnaceEntity;
+import draylar.fabricfurnaces.entity.BaseFurnaceEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
@@ -26,6 +26,7 @@ public class CrystalFurnaceBlock extends BaseFurnaceBlock {
     }
 
     @Override
+    @Environment(EnvType.CLIENT)
     public boolean isSideInvisible(BlockState state, BlockState neighbor, Direction facing) {
         return neighbor.getBlock() == this || super.isSideInvisible(state, neighbor, facing);
     }
@@ -34,10 +35,5 @@ public class CrystalFurnaceBlock extends BaseFurnaceBlock {
     @Override
     public float getAmbientOcclusionLightLevel(BlockState state, BlockView view, BlockPos pos) {
         return 1.0F;
-    }
-
-    @Override
-    public boolean isSimpleFullBlock(BlockState state, BlockView view, BlockPos pos) {
-        return false;
     }
 }

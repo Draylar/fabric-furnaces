@@ -1,18 +1,18 @@
-package com.github.draylar.fabricFurnaces.block;
+package draylar.fabricfurnaces.block;
 
-import com.github.draylar.fabricFurnaces.entity.BaseFurnaceEntity;
+import draylar.fabricfurnaces.entity.BaseFurnaceEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.container.Container;
-import net.minecraft.container.NameableContainerProvider;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
@@ -78,7 +78,7 @@ public class BaseFurnaceBlock extends BlockWithEntity {
         BlockEntity blockEntity = world.getBlockEntity(blockPos);
 
         if (blockEntity instanceof BaseFurnaceEntity) {
-            playerEntity.openContainer((NameableContainerProvider) blockEntity);
+            playerEntity.openHandledScreen((NamedScreenHandlerFactory) blockEntity);
             playerEntity.increaseStat(Stats.INTERACT_WITH_FURNACE, 1);
         }
     }
@@ -115,13 +115,6 @@ public class BaseFurnaceBlock extends BlockWithEntity {
         }
     }
 
-
-    @Override
-    public int getLuminance(BlockState state) {
-        return state.get(LIT) ? super.getLuminance(state) : 0;
-    }
-
-
     @Override
     public BlockState getPlacementState(ItemPlacementContext context) {
         return this.getDefaultState().with(FACING, context.getPlayerFacing().getOpposite());
@@ -139,16 +132,16 @@ public class BaseFurnaceBlock extends BlockWithEntity {
     }
 
     @Override
-    public void onBlockRemoved(BlockState state, World world, BlockPos pos, BlockState blockState_2, boolean boolean_1) {
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState blockState_2, boolean boolean_1) {
         if (state.getBlock() != blockState_2.getBlock()) {
             BlockEntity blockEntity_1 = world.getBlockEntity(pos);
 
             if (blockEntity_1 instanceof BaseFurnaceEntity) {
                 ItemScatterer.spawn(world, pos, (BaseFurnaceEntity) blockEntity_1);
-                world.updateHorizontalAdjacent(pos, this);
+                world.updateComparators(pos, this);
             }
 
-            super.onBlockRemoved(state, world, pos, blockState_2, boolean_1);
+            super.onStateReplaced(state, world, pos, blockState_2, boolean_1);
         }
     }
 
@@ -159,7 +152,7 @@ public class BaseFurnaceBlock extends BlockWithEntity {
 
     @Override
     public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
-        return Container.calculateComparatorOutput(world.getBlockEntity(pos));
+        return ScreenHandler.calculateComparatorOutput(world.getBlockEntity(pos));
     }
 
     @Override

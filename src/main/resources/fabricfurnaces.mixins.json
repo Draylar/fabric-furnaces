@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.github.draylar.fabricFurnaces.mixin",
+  "package": "draylar.fabricfurnaces.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "FurnaceXPMixin"
