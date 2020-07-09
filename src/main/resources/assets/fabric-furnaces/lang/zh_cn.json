@@ -1,10 +1,12 @@
 {
+  "itemGroup.fabric-furnaces.group": "织物熔炉",
+
   "block.fabric-furnaces.fabric_furnace": "织物熔炉",
   "block.fabric-furnaces.iron_furnace": "铁熔炉",
   "block.fabric-furnaces.gold_furnace": "金熔炉",
   "block.fabric-furnaces.diamond_furnace": "钻石熔炉",
   "block.fabric-furnaces.obsidian_furnace": "黑曜石熔炉",
-  "block.fabric-furnaces.nether_furnace": "下届熔炉",
+  "block.fabric-furnaces.nether_furnace": "下界熔炉",
   "block.fabric-furnaces.emerald_furnace": "绿宝石熔炉",
   "block.fabric-furnaces.end_furnace": "末地熔炉",
   "block.fabric-furnaces.ethereal_furnace": "以太熔炉",
@@ -14,8 +16,13 @@
   "block.fabric-furnaces.crystal_gold_furnace": "透明金熔炉",
   "block.fabric-furnaces.crystal_diamond_furnace": "透明钻石熔炉",
   "block.fabric-furnaces.crystal_obsidian_furnace": "透明黑曜石熔炉",
-  "block.fabric-furnaces.crystal_nether_furnace": "透明下届熔炉",
+  "block.fabric-furnaces.crystal_nether_furnace": "透明下界熔炉",
   "block.fabric-furnaces.crystal_emerald_furnace": "透明绿宝石熔炉",
   "block.fabric-furnaces.crystal_end_furnace": "透明末地熔炉",
   "block.fabric-furnaces.crystal_ethereal_furnace": "透明以太熔炉"
+
+  "fabric-furnaces.text.dupelabel": " 复制几率: %d",
+  "fabric-furnaces.text.speedlabel": " 加速: %dx",
+  "fabric-furnaces.text.fuellabel": " 燃料使用: %dx",
+  "fabric-furnaces.text.tooltiplabel": "熔炉状态:"
 }
