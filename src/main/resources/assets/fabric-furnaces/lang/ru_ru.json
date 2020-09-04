@@ -1,0 +1,28 @@
+{
+  "itemGroup.fabric-furnaces.group": "Fabric Furnaces",
+
+  "block.fabric-furnaces.fabric_furnace": "Fabric Печь",
+  "block.fabric-furnaces.iron_furnace": "Железная Печь",
+  "block.fabric-furnaces.gold_furnace": "Золотая Печь",
+  "block.fabric-furnaces.diamond_furnace": "Алмазная Печь",
+  "block.fabric-furnaces.obsidian_furnace": "Обсидиантовая Печь",
+  "block.fabric-furnaces.nether_furnace": "Адская Печь",
+  "block.fabric-furnaces.emerald_furnace": "Изумрудная Печь",
+  "block.fabric-furnaces.end_furnace": "Печь Края",
+  "block.fabric-furnaces.ethereal_furnace": "Эфирная Печь",
+
+  "block.fabric-furnaces.crystal_fabric_furnace": "Кристалл Fabric Печь",
+  "block.fabric-furnaces.crystal_iron_furnace": "Кристальная Железная Печь",
+  "block.fabric-furnaces.crystal_gold_furnace": "Кристалльная Золотая Печь",
+  "block.fabric-furnaces.crystal_diamond_furnace": "Кристалльная Алмазная Печь",
+  "block.fabric-furnaces.crystal_obsidian_furnace": "Кристалльная Обсидиантовая Печь",
+  "block.fabric-furnaces.crystal_nether_furnace": "Кристалльная Адская Печь",
+  "block.fabric-furnaces.crystal_emerald_furnace": "Кристалльная Изумрудная Печь",
+  "block.fabric-furnaces.crystal_end_furnace": "Кристалльная Печь Края",
+  "block.fabric-furnaces.crystal_ethereal_furnace": "Кристалльная Эфирная Печь",
+
+  "fabric-furnaces.text.dupelabel": " Обманутый шанс: %d",
+  "fabric-furnaces.text.speedlabel": " Увеличение скорости: %dx",
+  "fabric-furnaces.text.fuellabel": " Использование топлива: %dx",
+  "fabric-furnaces.text.tooltiplabel": "Статистика Печи:"
+}
