@@ -5,16 +5,15 @@ import draylar.fabricfurnaces.entity.BaseFurnaceEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Entities {
+public class FFEntities {
 
     public static BlockEntityType<BaseFurnaceEntity> FABRIC_FURNACE = register(
             "fabric_furnace",
             BlockEntityType.Builder.create(() ->
                             new BaseFurnaceEntity(1, 1, 0),
-                    Blocks.getFurnaces().toArray(new Block[0])
+                    FFBlocks.getFurnaces().toArray(new Block[0])
             ).build(null)
     );
 

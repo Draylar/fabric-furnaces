@@ -10,7 +10,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -19,26 +18,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.ToIntFunction;
 
-public class Blocks {
+public class FFBlocks {
 
     public static final List<Block> allFurnaces = new ArrayList<>();
     public static final List<Block> crystalFurnaces = new ArrayList<>();
     public static final List<Block> regularFurnaces = new ArrayList<>();
 
     public static void init() {
-        FabricFurnaces.CONFIG.furnaceData.forEach(Blocks::registerFurnace);
-        FabricFurnaces.CONFIG.furnaceData.forEach(Blocks::registerCrystalFurnace);
+        FabricFurnaces.CONFIG.furnaceData.forEach(FFBlocks::registerFurnace);
+        FabricFurnaces.CONFIG.furnaceData.forEach(FFBlocks::registerCrystalFurnace);
     }
 
     private static void registerFurnace(FurnaceData data) {
-        BaseFurnaceBlock baseFurnace = register(data.getName(), new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build().lightLevel(createLightLevelFromBlockState(13)), data.getSpeedModifier(), data.getFuelModifier(), data.getDuplicationChance()));
+        BaseFurnaceBlock baseFurnace = register(data.getName(), new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build().luminance(createLightLevelFromBlockState(13)), data.getSpeedModifier(), data.getFuelModifier(), data.getDuplicationChance()));
         Registry.register(Registry.ITEM, data.getID(), new FurnaceItem(baseFurnace, new Item.Settings().group(FabricFurnaces.GROUP)));
         regularFurnaces.add(baseFurnace);
         allFurnaces.add(baseFurnace);
     }
 
     private static void registerCrystalFurnace(FurnaceData data) {
-        BaseFurnaceBlock crystalFurnace = register(String.format("crystal_%s", data.getName()), new CrystalFurnaceBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().hardness(3.5f).build().lightLevel(createLightLevelFromBlockState(13)).nonOpaque(), data.getSpeedModifier(), data.getFuelModifier(), data.getDuplicationChance()));
+        BaseFurnaceBlock crystalFurnace = register(String.format("crystal_%s", data.getName()), new CrystalFurnaceBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().hardness(3.5f).build().luminance(createLightLevelFromBlockState(13)).nonOpaque(), data.getSpeedModifier(), data.getFuelModifier(), data.getDuplicationChance()));
         Registry.register(Registry.ITEM, FabricFurnaces.id(String.format("crystal_%s", data.getName())), new FurnaceItem(crystalFurnace, new Item.Settings().group(FabricFurnaces.GROUP)));
         crystalFurnaces.add(crystalFurnace);
         allFurnaces.add(crystalFurnace);

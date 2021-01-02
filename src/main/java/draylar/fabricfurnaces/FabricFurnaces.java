@@ -1,11 +1,10 @@
 package draylar.fabricfurnaces;
 
 import draylar.fabricfurnaces.config.FabricFurnacesConfig;
-import draylar.fabricfurnaces.registry.Blocks;
-import draylar.fabricfurnaces.registry.Entities;
+import draylar.fabricfurnaces.registry.FFBlocks;
+import draylar.fabricfurnaces.registry.FFEntities;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.GsonConfigSerializer;
-import me.sargunvohra.mcmods.autoconfig1u.serializer.JanksonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -20,8 +19,8 @@ public class FabricFurnaces implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		Blocks.init();
-		Entities.init();
+		FFBlocks.init();
+		FFEntities.init();
 	}
 
 	public static Identifier id(String name) {

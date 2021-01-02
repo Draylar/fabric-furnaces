@@ -1,7 +1,9 @@
 package draylar.fabricfurnaces.entity;
 
+import draylar.fabricfurnaces.FabricFurnaces;
 import draylar.fabricfurnaces.block.BaseFurnaceBlock;
-import draylar.fabricfurnaces.registry.Entities;
+import draylar.fabricfurnaces.config.FurnaceData;
+import draylar.fabricfurnaces.registry.FFEntities;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
@@ -29,11 +31,13 @@ import net.minecraft.util.Tickable;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.GameRules;
 
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class BaseFurnaceEntity extends LockableContainerBlockEntity implements SidedInventory, RecipeUnlocker, RecipeInputProvider, Tickable {
 
@@ -41,9 +45,9 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
     private float fuelModifier;
     private float duplicationChance; // 0 -> 100% chance
 
-    private static final int[] TOP_SLOTS = new int[]{0};
-    private static final int[] BOTTOM_SLOTS = new int[]{2, 1};
-    private static final int[] SIDE_SLOTS = new int[]{1};
+    private static final int[] TOP_SLOTS = new int[] {0};
+    private static final int[] BOTTOM_SLOTS = new int[] {2, 1};
+    private static final int[] SIDE_SLOTS = new int[] {1};
 
     public DefaultedList<ItemStack> inventory;
 
@@ -57,7 +61,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
     private final RecipeType<? extends SmeltingRecipe> recipeType;
 
     public BaseFurnaceEntity(float speedMultiplier, float fuelMultiplier, float duplicateChanceOutOf100) {
-        this(Entities.FABRIC_FURNACE, RecipeType.SMELTING);
+        this(FFEntities.FABRIC_FURNACE, RecipeType.SMELTING);
 
         this.speedModifier = speedMultiplier;
         this.fuelModifier = fuelMultiplier;
@@ -129,22 +133,35 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
     public void fromTag(BlockState state, CompoundTag tag) {
         super.fromTag(state, tag);
 
-        this.inventory = DefaultedList.ofSize(this.size(), ItemStack.EMPTY);
+        inventory = DefaultedList.ofSize(this.size(), ItemStack.EMPTY);
         Inventories.fromTag(tag, this.inventory);
-        this.burnTime = tag.getShort("BurnTime");
-        this.cookTime = tag.getShort("CookTime");
-        this.cookTimeTotal = tag.getShort("CookTimeTotal");
-        this.fuelTime = this.getFuelTime(this.inventory.get(1));
-        int int_1 = tag.getShort("RecipesUsedSize");
+        burnTime = tag.getShort("BurnTime");
+        cookTime = tag.getShort("CookTime");
+        cookTimeTotal = tag.getShort("CookTimeTotal");
+        fuelTime = this.getFuelTime(this.inventory.get(1));
+        int usedRecipes = tag.getShort("RecipesUsedSize");
 
-        this.speedModifier = tag.getFloat("speedModifier");
-        this.fuelModifier = tag.getFloat("fuelModifier");
-        this.duplicationChance = tag.getFloat("dupeChance");
+        // Get registry ID from state
+        Identifier registryID = Registry.BLOCK.getId(state.getBlock());
+        Optional<FurnaceData> data = FabricFurnaces.CONFIG.furnaceData.stream().filter(fdata -> fdata.getID().equals(registryID)).findFirst();
 
-        for (int int_2 = 0; int_2 < int_1; ++int_2) {
-            Identifier identifier_1 = new Identifier(tag.getString("RecipeLocation" + int_2));
-            int int_3 = tag.getInt("RecipeAmount" + int_2);
-            this.recipesUsed.put(identifier_1, int_3);
+        if(data.isPresent()) {
+            speedModifier = data.get().getSpeedModifier();
+            fuelModifier = data.get().getFuelModifier();
+            duplicationChance = data.get().getDuplicationChance();
+        }
+
+        // Was not able to retrieve data based on registry ID (this should not happen), fall back to whatever was saved to the tag.
+        else {
+            speedModifier = 1;
+            fuelModifier = 1;
+            duplicationChance = 1;
+        }
+
+        for (int i = 0; i < usedRecipes; ++i) {
+            Identifier recipeID = new Identifier(tag.getString("RecipeLocation" + i));
+            int amount = tag.getInt("RecipeAmount" + i);
+            recipesUsed.put(recipeID, amount);
         }
     }
 

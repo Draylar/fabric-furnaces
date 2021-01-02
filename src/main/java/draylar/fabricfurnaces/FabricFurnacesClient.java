@@ -1,6 +1,6 @@
 package draylar.fabricfurnaces;
 
-import draylar.fabricfurnaces.registry.Blocks;
+import draylar.fabricfurnaces.registry.FFBlocks;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -12,7 +12,7 @@ public class FabricFurnacesClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        Blocks.getCrystalFurnaces().forEach(block -> {
+        FFBlocks.getCrystalFurnaces().forEach(block -> {
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         });
     }
