@@ -58,7 +58,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
 
     private final PropertyDelegate propertyDelegate;
     private final Map<Identifier, Integer> recipesUsed;
-    private final RecipeType<? extends SmeltingRecipe> recipeType;
+    private final RecipeType<SmeltingRecipe> recipeType;
 
     public BaseFurnaceEntity(float speedMultiplier, float fuelMultiplier, float duplicateChanceOutOf100) {
         this(FFEntities.FABRIC_FURNACE, RecipeType.SMELTING);
@@ -68,7 +68,7 @@ public class BaseFurnaceEntity extends LockableContainerBlockEntity implements S
         this.duplicationChance = duplicateChanceOutOf100;
     }
 
-    private BaseFurnaceEntity(BlockEntityType<?> type, RecipeType<? extends SmeltingRecipe> recipeType_1) {
+    private BaseFurnaceEntity(BlockEntityType<?> type, RecipeType<SmeltingRecipe> recipeType_1) {
         super(type);
 
         this.inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
