@@ -1,0 +1,28 @@
+{
+  "itemGroup.fabric-furnaces.group": "Fabric Furnaces",
+
+  "block.fabric-furnaces.fabric_furnace": "Fornalha de Tecido",
+  "block.fabric-furnaces.iron_furnace": "Fornalha de Ferro",
+  "block.fabric-furnaces.gold_furnace": "Fornalha de Ouro",
+  "block.fabric-furnaces.diamond_furnace": "Fornalha de Diamante",
+  "block.fabric-furnaces.obsidian_furnace": "Fornalha de Obsidian",
+  "block.fabric-furnaces.nether_furnace": "Fornalha do Nether",
+  "block.fabric-furnaces.emerald_furnace": "Fornalha de Esmeralda",
+  "block.fabric-furnaces.end_furnace": "Fornalha do Fim",
+  "block.fabric-furnaces.ethereal_furnace": "Fornalha Etérea",
+
+  "block.fabric-furnaces.crystal_fabric_furnace": "Fornalha Cristalina de Tecido",
+  "block.fabric-furnaces.crystal_iron_furnace": "Fornalha Cristalina de Ferro",
+  "block.fabric-furnaces.crystal_gold_furnace": "Fornalha Cristalina de Ouro",
+  "block.fabric-furnaces.crystal_diamond_furnace": "Fornalha Cristalina de Diamante",
+  "block.fabric-furnaces.crystal_obsidian_furnace": "Fornalha Cristalina de Obsidian",
+  "block.fabric-furnaces.crystal_nether_furnace": "Fornalha Cristalina do Nether",
+  "block.fabric-furnaces.crystal_emerald_furnace": "Fornalha Cristalina de Esmeralda",
+  "block.fabric-furnaces.crystal_end_furnace": "Fornalha Cristalina do Fim",
+  "block.fabric-furnaces.crystal_ethereal_furnace": "Fornalha Cristalina Etérea",
+
+  "fabric-furnaces.text.dupelabel": " Chance de Engano: %d",
+  "fabric-furnaces.text.speedlabel": " Aumento de Velocidade: %dx",
+  "fabric-furnaces.text.fuellabel": " Uso de Combustível: %dx",
+  "fabric-furnaces.text.tooltiplabel": "Status da Fornalha:"
+}
