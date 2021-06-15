@@ -17,7 +17,7 @@
     "issues": "https://github.com/Draylar/fabric-furnaces/issues",
     "sources": "https://github.com/Draylar/fabric-furnaces"
   },
-  "license": "GPLv3",
+  "license": "MIT",
   "icon": "assets/fabric-furnaces/icon.png",
 
   "environment": "*",
