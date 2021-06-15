@@ -6,11 +6,11 @@ import net.minecraft.util.Identifier;
 public class FurnaceData {
 
     private final String name;
-    private final float speedModifier;
-    private final float fuelModifier;
-    private final float duplicationChance;
+    private final double speedModifier;
+    private final double fuelModifier;
+    private final int duplicationChance;
 
-    public FurnaceData(String name, float speedModifier, float fuelModifier, float duplicationChance) {
+    public FurnaceData(String name, double speedModifier, double fuelModifier, int duplicationChance) {
         this.name = name;
         this.speedModifier = speedModifier;
         this.fuelModifier = fuelModifier;
@@ -25,19 +25,19 @@ public class FurnaceData {
         return FabricFurnaces.id(getName());
     }
 
-    public float getSpeedModifier() {
+    public double getSpeedModifier() {
         return speedModifier;
     }
 
-    public float getFuelModifier() {
+    public double getFuelModifier() {
         return fuelModifier;
     }
 
-    public float getDuplicationChance() {
+    public int getDuplicationChance() {
         return duplicationChance;
     }
 
-    public static FurnaceData of(String name, float speedModifier, float fuelModifier, float duplicationChance) {
+    public static FurnaceData of(String name, double speedModifier, double fuelModifier, int duplicationChance) {
         return new FurnaceData(name, speedModifier, fuelModifier, duplicationChance);
     }
 }

@@ -1,6 +1,6 @@
 package draylar.fabricfurnaces.item;
 
-import draylar.fabricfurnaces.block.BaseFurnaceBlock;
+import draylar.fabricfurnaces.block.FabricFurnaceBlock;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
@@ -16,9 +16,9 @@ import java.util.List;
 
 public class FurnaceItem extends BlockItem {
 
-    private final BaseFurnaceBlock block;
+    private final FabricFurnaceBlock block;
 
-    public FurnaceItem(BaseFurnaceBlock block, Settings settings) {
+    public FurnaceItem(FabricFurnaceBlock block, Settings settings) {
         super(block, settings);
         this.block = block;
     }
@@ -31,11 +31,11 @@ public class FurnaceItem extends BlockItem {
         list.add(new TranslatableText("fabric-furnaces.text.tooltiplabel").formatted(Formatting.GRAY));
 
         // add stats
-        list.add(new TranslatableText("fabric-furnaces.text.speedlabel", block.getSpeedMultiplier()).formatted(Formatting.DARK_GREEN));
-        list.add(new TranslatableText("fabric-furnaces.text.fuellabel", block.getFuelMultiplier()).formatted(Formatting.DARK_GREEN));
+        list.add(new TranslatableText("fabric-furnaces.text.speedlabel", block.getSpeedModifier()).formatted(Formatting.DARK_GREEN));
+        list.add(new TranslatableText("fabric-furnaces.text.fuellabel", block.getFuelModifier()).formatted(Formatting.DARK_GREEN));
 
-        if (block.getDupeChance() > 0) {
-            list.add(new TranslatableText("fabric-furnaces.text.dupelabel", block.getDupeChance()).formatted(Formatting.DARK_GREEN).append(new LiteralText("%").formatted(Formatting.DARK_GREEN)));
+        if (block.getDuplicationChance() > 0) {
+            list.add(new TranslatableText("fabric-furnaces.text.dupelabel", block.getDuplicationChance()).formatted(Formatting.DARK_GREEN).append(new LiteralText("%").formatted(Formatting.DARK_GREEN)));
         }
 
         super.appendTooltip(stack, world, list, context);

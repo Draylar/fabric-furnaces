@@ -3,6 +3,7 @@
   "package": "draylar.fabricfurnaces.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "AbstractFurnaceEntityMixin",
     "FurnaceXPMixin"
   ],
   "injectors": {

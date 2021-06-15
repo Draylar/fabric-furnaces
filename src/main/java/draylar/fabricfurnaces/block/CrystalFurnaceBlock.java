@@ -1,6 +1,6 @@
 package draylar.fabricfurnaces.block;
 
-import draylar.fabricfurnaces.entity.BaseFurnaceEntity;
+import draylar.fabricfurnaces.entity.FabricFurnaceEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
@@ -9,15 +9,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
 
-public class CrystalFurnaceBlock extends BaseFurnaceBlock {
+public class CrystalFurnaceBlock extends FabricFurnaceBlock {
 
-    public CrystalFurnaceBlock(Settings settings, float speedMultiplier, float fuelMultiplier, float dupeChance100) {
+    public CrystalFurnaceBlock(Settings settings, double speedMultiplier, double fuelMultiplier, int dupeChance100) {
         super(settings, speedMultiplier, fuelMultiplier, dupeChance100);
-    }
-
-    @Override
-    public BlockEntity createBlockEntity(BlockView blockView_1) {
-        return new BaseFurnaceEntity(speed, fuel, dupe);
     }
 
     @Override

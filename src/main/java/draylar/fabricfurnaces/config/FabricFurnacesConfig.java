@@ -1,16 +1,14 @@
 package draylar.fabricfurnaces.config;
 
-import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
-import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
-import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
+import draylar.omegaconfig.api.Comment;
+import draylar.omegaconfig.api.Config;
 
 import java.util.Arrays;
 import java.util.List;
 
-@Config(name = "fabric-furnaces")
-public class FabricFurnacesConfig implements ConfigData {
+public class FabricFurnacesConfig implements Config {
 
-    @Comment(value = "List of furnaces that will be registered when the game starts.\nWARNING: modifying this file may ruin Fabric Furnace blocks and the contents they contain.\nRemember to take backups before removing furnaces.")
+    @Comment(value = "List of furnaces that will be registered when the game starts. WARNING: modifying this file may ruin Fabric Furnace blocks and the contents they contain. Remember to take backups before removing furnaces.")
     public List<FurnaceData> furnaceData = Arrays.asList(
             FurnaceData.of("fabric", 1.5f, 1.5f, 0),
             FurnaceData.of("iron", 2, 2, 0),
@@ -22,4 +20,9 @@ public class FabricFurnacesConfig implements ConfigData {
             FurnaceData.of("end", 12f, 10f, 66),
             FurnaceData.of("ethereal", 32f, 16f, 100)
     );
+
+    @Override
+    public String getName() {
+        return "fabric-furnaces";
+    }
 }

@@ -1,7 +1,7 @@
 package draylar.fabricfurnaces.registry;
 
 import draylar.fabricfurnaces.FabricFurnaces;
-import draylar.fabricfurnaces.block.BaseFurnaceBlock;
+import draylar.fabricfurnaces.block.FabricFurnaceBlock;
 import draylar.fabricfurnaces.block.CrystalFurnaceBlock;
 import draylar.fabricfurnaces.config.FurnaceData;
 import draylar.fabricfurnaces.item.FurnaceItem;
@@ -30,20 +30,20 @@ public class FFBlocks {
     }
 
     private static void registerFurnace(FurnaceData data) {
-        BaseFurnaceBlock baseFurnace = register(data.getName(), new BaseFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build().luminance(createLightLevelFromBlockState(13)), data.getSpeedModifier(), data.getFuelModifier(), data.getDuplicationChance()));
+        FabricFurnaceBlock baseFurnace = register(data.getName(), new FabricFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build().luminance(createLightLevelFromBlockState(13)), data.getSpeedModifier(), data.getFuelModifier(), data.getDuplicationChance()));
         Registry.register(Registry.ITEM, data.getID(), new FurnaceItem(baseFurnace, new Item.Settings().group(FabricFurnaces.GROUP)));
         regularFurnaces.add(baseFurnace);
         allFurnaces.add(baseFurnace);
     }
 
     private static void registerCrystalFurnace(FurnaceData data) {
-        BaseFurnaceBlock crystalFurnace = register(String.format("crystal_%s", data.getName()), new CrystalFurnaceBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().hardness(3.5f).build().luminance(createLightLevelFromBlockState(13)).nonOpaque(), data.getSpeedModifier(), data.getFuelModifier(), data.getDuplicationChance()));
+        FabricFurnaceBlock crystalFurnace = register(String.format("crystal_%s", data.getName()), new CrystalFurnaceBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().hardness(3.5f).build().luminance(createLightLevelFromBlockState(13)).nonOpaque(), data.getSpeedModifier(), data.getFuelModifier(), data.getDuplicationChance()));
         Registry.register(Registry.ITEM, FabricFurnaces.id(String.format("crystal_%s", data.getName())), new FurnaceItem(crystalFurnace, new Item.Settings().group(FabricFurnaces.GROUP)));
         crystalFurnaces.add(crystalFurnace);
         allFurnaces.add(crystalFurnace);
     }
 
-    private static BaseFurnaceBlock register(String name, BaseFurnaceBlock block) {
+    private static FabricFurnaceBlock register(String name, FabricFurnaceBlock block) {
         return Registry.register(Registry.BLOCK, new Identifier("fabric-furnaces", name), block);
     }
 

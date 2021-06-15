@@ -1,10 +1,13 @@
 package draylar.fabricfurnaces.block;
 
-import draylar.fabricfurnaces.entity.BaseFurnaceEntity;
+import draylar.fabricfurnaces.entity.FabricFurnaceEntity;
+import draylar.fabricfurnaces.registry.FFEntities;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
@@ -13,6 +16,7 @@ import net.minecraft.loot.context.LootContext;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
@@ -25,23 +29,24 @@ import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.BlockView;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class BaseFurnaceBlock extends BlockWithEntity {
-    
+public class FabricFurnaceBlock extends BlockWithEntity {
+
     private static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;
 
-    protected float speed;
-    protected float fuel;
-    protected float dupe;
+    protected double speed;
+    protected double fuel;
+    protected int dupe;
 
-    public BaseFurnaceBlock(Settings settings, float speedMultiplier, float fuelMultiplier, float dupeChance100) {
+    public FabricFurnaceBlock(Settings settings, double speedMultiplier, double fuelMultiplier, int dupeChance100) {
         super(settings);
 
         this.speed = speedMultiplier;
@@ -51,9 +56,15 @@ public class BaseFurnaceBlock extends BlockWithEntity {
         this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH).with(LIT, false));
     }
 
+    @Nullable
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return checkType(world, type, FFEntities.FABRIC_FURNACE);
+    }
+
+    @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockView view) {
-        return new BaseFurnaceEntity(speed, fuel, dupe);
+    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new FabricFurnaceEntity(pos, state);
     }
 
     @Override
@@ -66,18 +77,26 @@ public class BaseFurnaceBlock extends BlockWithEntity {
     }
 
     @Override
-    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (world.getBlockEntity(pos) instanceof BaseFurnaceEntity) {
-            ((BaseFurnaceEntity) world.getBlockEntity(pos)).dropExperience(player);
-        }
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        if (!state.isOf(newState.getBlock())) {
+            BlockEntity be = world.getBlockEntity(pos);
+            if (be instanceof FabricFurnaceEntity furnace) {
+                if (world instanceof ServerWorld) {
+                    ItemScatterer.spawn(world, pos, furnace);
+                    ((FabricFurnaceEntity)be).getRecipesUsedAndDropExperience((ServerWorld)world, Vec3d.ofCenter(pos));
+                }
 
-        super.onBreak(world, pos, state, player);
+                world.updateComparators(pos, this);
+            }
+
+            super.onStateReplaced(state, world, pos, newState, moved);
+        }
     }
 
     private void openContainer(World world, BlockPos blockPos, PlayerEntity playerEntity) {
         BlockEntity blockEntity = world.getBlockEntity(blockPos);
 
-        if (blockEntity instanceof BaseFurnaceEntity) {
+        if (blockEntity instanceof FabricFurnaceEntity) {
             playerEntity.openHandledScreen((NamedScreenHandlerFactory) blockEntity);
             playerEntity.increaseStat(Stats.INTERACT_WITH_FURNACE, 1);
         }
@@ -125,23 +144,9 @@ public class BaseFurnaceBlock extends BlockWithEntity {
         if (itemStack.hasCustomName()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
 
-            if (blockEntity instanceof BaseFurnaceEntity) {
-                ((BaseFurnaceEntity) blockEntity).setCustomName(itemStack.getName());
+            if (blockEntity instanceof FabricFurnaceEntity) {
+                ((FabricFurnaceEntity) blockEntity).setCustomName(itemStack.getName());
             }
-        }
-    }
-
-    @Override
-    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState blockState_2, boolean boolean_1) {
-        if (state.getBlock() != blockState_2.getBlock()) {
-            BlockEntity blockEntity_1 = world.getBlockEntity(pos);
-
-            if (blockEntity_1 instanceof BaseFurnaceEntity) {
-                ItemScatterer.spawn(world, pos, (BaseFurnaceEntity) blockEntity_1);
-                world.updateComparators(pos, this);
-            }
-
-            super.onStateReplaced(state, world, pos, blockState_2, boolean_1);
         }
     }
 
@@ -165,15 +170,20 @@ public class BaseFurnaceBlock extends BlockWithEntity {
         builder.add(FACING, LIT);
     }
 
-    public float getSpeedMultiplier() {
+    @Nullable
+    protected static <T extends BlockEntity> BlockEntityTicker<T> checkType(World world, BlockEntityType<T> givenType, BlockEntityType<? extends FabricFurnaceEntity> expectedType) {
+        return world.isClient ? null : checkType(givenType, expectedType, FabricFurnaceEntity::tick);
+    }
+
+    public double getSpeedModifier() {
         return speed;
     }
 
-    public float getFuelMultiplier() {
+    public double getFuelModifier() {
         return fuel;
     }
 
-    public float getDupeChance() {
+    public int getDuplicationChance() {
         return dupe;
     }
 }
