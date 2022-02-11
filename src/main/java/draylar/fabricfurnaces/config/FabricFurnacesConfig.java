@@ -25,4 +25,9 @@ public class FabricFurnacesConfig implements Config {
     public String getName() {
         return "fabric-furnaces";
     }
+
+    @Override
+    public String getExtension() {
+        return "json5";
+    }
 }
