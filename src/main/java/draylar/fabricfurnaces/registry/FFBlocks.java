@@ -5,7 +5,7 @@ import draylar.fabricfurnaces.block.FabricFurnaceBlock;
 import draylar.fabricfurnaces.block.CrystalFurnaceBlock;
 import draylar.fabricfurnaces.config.FurnaceData;
 import draylar.fabricfurnaces.item.FurnaceItem;
-import net.fabricmc.fabric.api.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
@@ -30,14 +30,14 @@ public class FFBlocks {
     }
 
     private static void registerFurnace(FurnaceData data) {
-        FabricFurnaceBlock baseFurnace = register(data.getName(), new FabricFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).build().luminance(createLightLevelFromBlockState(13)), data.getSpeedModifier(), data.getFuelModifier(), data.getDuplicationChance()));
+        FabricFurnaceBlock baseFurnace = register(data.getName(), new FabricFurnaceBlock(FabricBlockSettings.of(Material.STONE).hardness(3.5f).luminance(createLightLevelFromBlockState(13)), data.getSpeedModifier(), data.getFuelModifier(), data.getDuplicationChance()));
         Registry.register(Registry.ITEM, data.getID(), new FurnaceItem(baseFurnace, new Item.Settings().group(FabricFurnaces.GROUP)));
         regularFurnaces.add(baseFurnace);
         allFurnaces.add(baseFurnace);
     }
 
     private static void registerCrystalFurnace(FurnaceData data) {
-        FabricFurnaceBlock crystalFurnace = register(String.format("crystal_%s", data.getName()), new CrystalFurnaceBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().hardness(3.5f).build().luminance(createLightLevelFromBlockState(13)).nonOpaque(), data.getSpeedModifier(), data.getFuelModifier(), data.getDuplicationChance()));
+        FabricFurnaceBlock crystalFurnace = register(String.format("crystal_%s", data.getName()), new CrystalFurnaceBlock(FabricBlockSettings.of(Material.STONE).nonOpaque().hardness(3.5f).luminance(createLightLevelFromBlockState(13)).nonOpaque(), data.getSpeedModifier(), data.getFuelModifier(), data.getDuplicationChance()));
         Registry.register(Registry.ITEM, FabricFurnaces.id(String.format("crystal_%s", data.getName())), new FurnaceItem(crystalFurnace, new Item.Settings().group(FabricFurnaces.GROUP)));
         crystalFurnaces.add(crystalFurnace);
         allFurnaces.add(crystalFurnace);
