@@ -5,11 +5,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.AbstractCookingRecipe;
 import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -67,7 +64,7 @@ public abstract class AbstractFurnaceEntityMixin extends BlockEntity {
     @Inject(
             method = "getCookTime",
             at = @At("RETURN"), cancellable = true)
-    private static void modifyCookTime(World world, RecipeType<? extends AbstractCookingRecipe> recipeType, Inventory inventory, CallbackInfoReturnable<Integer> cir) {
+    private static void modifyCookTime(World world, AbstractFurnaceBlockEntity furnace, CallbackInfoReturnable<Integer> cir) {
         Integer original = cir.getReturnValue();
 
         if(ff_entityContext instanceof FabricFurnaceEntity) {

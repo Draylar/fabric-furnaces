@@ -6,9 +6,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
@@ -27,15 +25,15 @@ public class FurnaceItem extends BlockItem {
     @Environment(EnvType.CLIENT)
     public void appendTooltip(ItemStack stack, World world, List<Text> list, TooltipContext context) {
         // add top label section
-        list.add(new LiteralText(""));
-        list.add(new TranslatableText("fabric-furnaces.text.tooltiplabel").formatted(Formatting.GRAY));
+        list.add(Text.of(""));
+        list.add(Text.translatable("fabric-furnaces.text.tooltiplabel").formatted(Formatting.GRAY));
 
         // add stats
-        list.add(new TranslatableText("fabric-furnaces.text.speedlabel", block.getSpeedModifier()).formatted(Formatting.DARK_GREEN));
-        list.add(new TranslatableText("fabric-furnaces.text.fuellabel", block.getFuelModifier()).formatted(Formatting.DARK_GREEN));
+        list.add(Text.translatable("fabric-furnaces.text.speedlabel", block.getSpeedModifier()).formatted(Formatting.DARK_GREEN));
+        list.add(Text.translatable("fabric-furnaces.text.fuellabel", block.getFuelModifier()).formatted(Formatting.DARK_GREEN));
 
         if (block.getDuplicationChance() > 0) {
-            list.add(new TranslatableText("fabric-furnaces.text.dupelabel", block.getDuplicationChance()).formatted(Formatting.DARK_GREEN).append(new LiteralText("%").formatted(Formatting.DARK_GREEN)));
+            list.add(Text.translatable("fabric-furnaces.text.dupelabel", block.getDuplicationChance()).formatted(Formatting.DARK_GREEN).append(Text.of("%")));
         }
 
         super.appendTooltip(stack, world, list, context);

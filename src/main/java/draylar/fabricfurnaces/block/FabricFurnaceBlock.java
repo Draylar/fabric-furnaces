@@ -110,7 +110,6 @@ public class FabricFurnaceBlock extends BlockWithEntity {
     }
 
     @Environment(EnvType.CLIENT)
-    @Override
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         if (state.get(LIT)) {
             double x = (double) pos.getX() + 0.5D;
