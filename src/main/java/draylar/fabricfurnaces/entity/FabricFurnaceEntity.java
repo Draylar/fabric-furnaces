@@ -10,7 +10,6 @@ import net.minecraft.recipe.RecipeType;
 import net.minecraft.screen.FurnaceScreenHandler;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 
 public class FabricFurnaceEntity extends AbstractFurnaceBlockEntity {
@@ -26,7 +25,7 @@ public class FabricFurnaceEntity extends AbstractFurnaceBlockEntity {
 
     @Override
     public Text getContainerName() {
-        return new TranslatableText("container.furnace");
+        return Text.translatable("container.furnace");
     }
 
     @Override
