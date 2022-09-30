@@ -67,7 +67,7 @@ public abstract class AbstractFurnaceEntityMixin extends BlockEntity {
     @Inject(
             method = "getCookTime",
             at = @At("RETURN"), cancellable = true)
-    private static void modifyCookTime(World world, RecipeType<? extends AbstractCookingRecipe> recipeType, Inventory inventory, CallbackInfoReturnable<Integer> cir) {
+    private static void modifyCookTime(World world, AbstractFurnaceBlockEntity furnace, CallbackInfoReturnable<Integer> cir) {
         Integer original = cir.getReturnValue();
 
         if(ff_entityContext instanceof FabricFurnaceEntity) {
