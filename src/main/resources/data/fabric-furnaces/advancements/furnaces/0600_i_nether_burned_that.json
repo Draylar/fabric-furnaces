@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:nether_furnace"
+    },
+    "title": {"translate":"I nether burned that!"},
+    "description": {"color":"green","translate":"Craft an nether furnace using soul sand, magma cream, blaze rod, nether bricks, magma block and an obsidian furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0500_harness_the_volcano",
+  "criteria": {
+    "i_nether_burned_that": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:nether_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

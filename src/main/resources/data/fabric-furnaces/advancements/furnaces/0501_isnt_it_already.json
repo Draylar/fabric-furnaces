@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:crystal_diamond_furnace"
+    },
+    "title": {"translate":"Isn't it already a crystal?"},
+    "description": {"color":"green","translate":"Craft an crystal diamond furnace using glass and a diamond furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0400_bedazzled_firepit",
+  "criteria": {
+    "isnt_it_already": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:crystal_diamond_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

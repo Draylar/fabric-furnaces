@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:crystal_nether_furnace"
+    },
+    "title": {"translate":"Stare into the void"},
+    "description": {"color":"green","translate":"Craft a crystal nether furnace using glass and a nether furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0600_i_nether_burned_that",
+  "criteria": {
+    "into_the_void": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:crystal_nether_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

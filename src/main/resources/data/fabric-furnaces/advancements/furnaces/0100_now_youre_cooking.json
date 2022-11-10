@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:fabric_furnace"
+    },
+    "title": {"translate":"Now you're cooking!"},
+    "description": {"color":"green","translate":"Craft a fabric furnace using leather, wool, and a stone furnace"},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/root",
+  "criteria": {
+    "fabric_furnace": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:fabric_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

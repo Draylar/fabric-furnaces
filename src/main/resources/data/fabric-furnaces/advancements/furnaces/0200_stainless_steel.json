@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:iron_furnace"
+    },
+    "title": {"translate":"Stainless steel"},
+    "description": {"color":"green","translate":"Craft an iron furnace using iron ingots and a fabric furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0100_now_youre_cooking",
+  "criteria": {
+    "stainless_steel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:iron_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

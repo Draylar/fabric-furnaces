@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:end_furnace"
+    },
+    "title": {"translate":"Closing time"},
+    "description": {"color":"green","translate":"Craft an end furnace using end rod, ender eye, ender pearl, end stone bricks, shulker shell, and an emerald furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0700_city_of_oz",
+  "criteria": {
+    "closing_time": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:end_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

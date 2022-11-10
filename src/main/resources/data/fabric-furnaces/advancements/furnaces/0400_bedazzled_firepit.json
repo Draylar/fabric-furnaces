@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:diamond_furnace"
+    },
+    "title": {"translate":"Bedazzled firepit"},
+    "description": {"color":"green","translate":"Craft a diamond furnace using diamonds and a gold furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0300_gilded_oven",
+  "criteria": {
+    "bedazzled_firepit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:diamond_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

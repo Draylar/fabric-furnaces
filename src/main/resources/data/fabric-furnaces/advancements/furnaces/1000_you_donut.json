@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:crystal_ethereal_furnace"
+    },
+    "title": {"translate":"You donut! - Also Gordon"},
+    "description": {"color":"green","translate":"Craft a crystal ethereal furnace using glass and an ethereal furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0900_ramsays_compliment",
+  "criteria": {
+    "you_donut": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:crystal_ethereal_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

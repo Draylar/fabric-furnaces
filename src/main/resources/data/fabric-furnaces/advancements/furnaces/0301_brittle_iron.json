@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:crystal_iron_furnace"
+    },
+    "title": {"translate":"Brittle iron"},
+    "description": {"color":"green","translate":"Craft a crystal iron furnace using glass and an iron furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0200_stainless_steel",
+  "criteria": {
+    "brittle_iron": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:crystal_iron_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

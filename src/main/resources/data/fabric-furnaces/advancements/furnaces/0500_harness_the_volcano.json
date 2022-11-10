@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:obsidian_furnace"
+    },
+    "title": {"translate":"Harness the volcano"},
+    "description": {"color":"green","translate":"Craft an obsidian furnace using obsidian and a diamond furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0400_bedazzled_firepit",
+  "criteria": {
+    "harness_the_volcano": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:obsidian_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

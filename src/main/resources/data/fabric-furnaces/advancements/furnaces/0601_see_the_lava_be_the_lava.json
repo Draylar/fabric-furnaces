@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:crystal_obsidian_furnace"
+    },
+    "title": {"translate":"See the lava, be the lava"},
+    "description": {"color":"green","translate":"Craft a crystal obsidian furnace using glass and an obsidian furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0500_harness_the_volcano",
+  "criteria": {
+    "see_the_lava_be_the_lava": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:crystal_obsidian_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

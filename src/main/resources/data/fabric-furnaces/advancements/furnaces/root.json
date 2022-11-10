@@ -1,0 +1,17 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:furnace"
+    },
+    "title": {"translate":"Fabric Furnaces"},
+    "description": {"color":"green","translate":"Smelt in style!"},
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "show_toast": false,
+    "announce_to_chat": "false"
+  },
+  "criteria": {
+    "location": {
+      "trigger": "minecraft:location"
+    }
+  }
+}

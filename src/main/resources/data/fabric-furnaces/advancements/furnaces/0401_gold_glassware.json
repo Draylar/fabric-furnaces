@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:crystal_gold_furnace"
+    },
+    "title": {"translate":"Gold glassware"},
+    "description": {"color":"green","translate":"Craft a crystal gold furnace using glass and a gold furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0300_gilded_oven",
+  "criteria": {
+    "gold_glassware": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:crystal_gold_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
