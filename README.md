@@ -4,7 +4,7 @@
 
 Fabric Furnaces is a Fabric mod which adds more furnace variants to the game.
 
-![furnaces](resources/cb8o1vR.png)
+![furnaces](resources/ffurnaces.png)
 
 ![recipes](resources/recipes.png)
 
