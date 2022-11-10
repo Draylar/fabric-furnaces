@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:crystal_fabric_furnace"
+    },
+    "title": {"translate":"See through cotton"},
+    "description": {"color":"green","translate":"Craft a crystal fabric furnace using glass and a fabric furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0100_now_youre_cooking",
+  "criteria": {
+    "see_through_cotton": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:crystal_fabric_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

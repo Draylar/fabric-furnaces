@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:crystal_emerald_furnace"
+    },
+    "title": {"translate":"Pay no attention to the man behind the curtain!"},
+    "description": {"color":"green","translate":"Craft a crystal emerald furnace using glass and an emerald furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0700_city_of_oz",
+  "criteria": {
+    "man_behind_the_curtain": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:crystal_emerald_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

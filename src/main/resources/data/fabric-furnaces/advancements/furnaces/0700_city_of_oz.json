@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:emerald_furnace"
+    },
+    "title": {"translate":"Who dares disturb the Wizard!?!?"},
+    "description": {"color":"green","translate":"Craft an emerald furnace using emeralds and a nether furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0600_i_nether_burned_that",
+  "criteria": {
+    "city_of_oz": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:emerald_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

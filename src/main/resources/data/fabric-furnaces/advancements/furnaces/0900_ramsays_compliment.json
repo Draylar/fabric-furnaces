@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:ethereal_furnace"
+    },
+    "title": {"translate":"Perfectly cooked - Gordon"},
+    "description": {"color":"green","translate":"Craft an ethereal furnace using glowstone, dragon head, diamond block, nether star, sea lantern, and an end furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0800_closing_time",
+  "criteria": {
+    "ramsays_compliment": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:ethereal_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

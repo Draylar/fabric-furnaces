@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:gold_furnace"
+    },
+    "title": {"translate":"Gilded oven"},
+    "description": {"color":"green","translate":"Craft a gold furnace using gold ingots and an iron furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0200_stainless_steel",
+  "criteria": {
+    "gilded_oven": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:gold_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

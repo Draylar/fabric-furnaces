@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "fabric-furnaces:crystal_end_furnace"
+    },
+    "title": {"translate":"See you on the other side"},
+    "description": {"color":"green","translate":"Craft a crystal end furnace using glass and an end furnace."},
+    "announce_to_chat": "true"
+  },
+  "parent": "fabric-furnaces:furnaces/0800_closing_time",
+  "criteria": {
+    "the_other_side": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fabric-furnaces:crystal_end_furnace"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
