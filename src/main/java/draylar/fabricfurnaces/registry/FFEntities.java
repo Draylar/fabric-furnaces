@@ -6,7 +6,8 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 
 public class FFEntities {
 
@@ -21,6 +22,6 @@ public class FFEntities {
     }
 
     private static <T extends BlockEntity> BlockEntityType<T> register(String name, BlockEntityType<T> type) {
-        return Registry.register(Registry.BLOCK_ENTITY_TYPE, FabricFurnaces.id(name), type);
+        return Registry.register(Registries.BLOCK_ENTITY_TYPE, FabricFurnaces.id(name), type);
     }
 }
