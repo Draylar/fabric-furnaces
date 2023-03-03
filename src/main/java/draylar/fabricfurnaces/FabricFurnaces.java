@@ -5,16 +5,18 @@ import draylar.fabricfurnaces.registry.FFBlocks;
 import draylar.fabricfurnaces.registry.FFEntities;
 import draylar.omegaconfig.OmegaConfig;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class FabricFurnaces implements ModInitializer {
 
 	public static final FabricFurnacesConfig CONFIG = OmegaConfig.register(FabricFurnacesConfig.class);
-	public static final ItemGroup GROUP = FabricItemGroupBuilder.build(id("group"), () -> new ItemStack(Registry.ITEM.get(id("fabric_furnace"))));
+	public static final ItemGroup GROUP = FabricItemGroup.builder(id("group"))
+	.icon(() -> new ItemStack(Registries.ITEM.get(id("fabric_furnace"))))
+	.build();
 
 	@Override
 	public void onInitialize() {
